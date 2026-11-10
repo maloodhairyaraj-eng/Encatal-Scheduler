@@ -1,0 +1,14 @@
+// Creating a company
+
+$body = @{
+    name = "Supreme Gums"
+    code = "SUPREME"
+} | ConvertTo-Json
+
+Invoke-RestMethod `
+    -Uri "http://localhost:8080/api/companies" `
+    -Method Post `
+    -ContentType "application/json" `
+    -Body $body
+
+
